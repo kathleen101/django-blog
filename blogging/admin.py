@@ -6,17 +6,15 @@ class MembershipInline(admin.TabularInline):
     model = Category.posts.through
 
 
+@admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     inlines = [
         MembershipInline,
     ]
 
 
+@admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    inlines = [
-        MembershipInline,
-    ]
     exclude = ('posts',)
 
 
-admin.site.register(Post, PostAdmin)
