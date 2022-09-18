@@ -6,3 +6,6 @@ install:
   - python manage.py migrate
 script:
   - python manage.py test
+branches:
+  only:
+    - master
